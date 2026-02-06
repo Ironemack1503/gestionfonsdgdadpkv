@@ -1,0 +1,55 @@
+name: Test Excel Export
+
+on:
+  push:
+    branches: [ main, develop, master ]
+  pull_request:
+    branches: [ main, develop, master ]
+  workflow_dispatch:
+
+jobs:
+  test-export:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build esbuild bundle for export wrapper
+        run: npx esbuild src/lib/safeXlsx.ts --bundle --platform=node --target=node18 --outfile=tools_dist/src/lib/safeXlsx.cjs --format=cjs
+
+      - name: Run export test
+        run: npm run test:export
+
+      - name: Check if Excel file was created
+        run: |
+          if [ -f test_wrapper_export_cjs.xlsx ]; then
+            echo "✅ Excel export file created successfully"
+            ls -lh test_wrapper_export_cjs.xlsx
+          else
+            echo "❌ Excel export file was not created"
+            exit 1
+          fi
+
+      - name: Upload export artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-export-artifacts-node-${{ matrix.node-version }}
+          path: |
+            test_wrapper_export_cjs.xlsx
+            test_export_js.xlsx
+            test_wrapper_export.xlsx
+          retention-days: 7

@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+bun.lockb
+
+# Build outputs
+dist/
+tools_dist/
+.turbo/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+
+# Supabase
+.supabase/
+
+# Test files
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
