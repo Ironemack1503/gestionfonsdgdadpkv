@@ -1,0 +1,209 @@
+/**
+ * Official Report Print Styles
+ * Optimized for A4 paper printing
+ */
+
+.official-report {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 20mm 15mm;
+  background: white;
+  color: black;
+  font-family: Arial, sans-serif;
+}
+
+.official-report * {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Contact info styling */
+.official-report .contact-info {
+  font-size: 9px;
+  line-height: 1.3;
+}
+
+/* Signature blocks */
+.official-report .signature-block {
+  width: 45%;
+}
+
+.official-report .signature-title {
+  min-height: 40px;
+}
+
+/* Report structure */
+.report-header {
+  margin-bottom: 24px;
+}
+
+.report-table {
+  page-break-inside: avoid;
+}
+
+.report-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.report-table th {
+  background-color: #f3f4f6 !important;
+  font-weight: bold;
+  padding: 8px;
+  border: 1px solid #000;
+}
+
+.report-table td {
+  padding: 6px 8px;
+  border: 1px solid #000;
+}
+
+.report-table tbody tr:hover {
+  background-color: transparent;
+}
+
+/* Print-specific styles */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .official-report {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  /* Hide non-printable elements */
+  .no-print,
+  button,
+  .page-header,
+  nav,
+  aside,
+  header:not(.report-header),
+  footer:not(.report-footer) {
+    display: none !important;
+  }
+
+  /* Ensure proper page breaks */
+  .report-header {
+    page-break-after: avoid;
+  }
+
+  .report-table {
+    page-break-inside: avoid;
+  }
+
+  .report-signatures {
+    page-break-before: avoid;
+  }
+
+  /* Ensure table borders print correctly */
+  .report-table table,
+  .report-table th,
+  .report-table td {
+    border: 1px solid #000 !important;
+  }
+
+  .report-table thead {
+    display: table-header-group;
+  }
+
+  .report-table tfoot {
+    display: table-footer-group;
+  }
+
+  /* Font adjustments for print */
+  .official-report {
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+
+  .report-table table {
+    font-size: 10pt;
+  }
+
+  /* Ensure colors print */
+  .report-table th,
+  .report-table tfoot tr {
+    background-color: #e5e7eb !important;
+  }
+}
+
+/* Screen-only preview styles */
+@media screen {
+  .official-report {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border-radius: 4px;
+    margin: 20px auto;
+  }
+
+  .official-report-preview-container {
+    background: #f3f4f6;
+    padding: 20px;
+    min-height: 100vh;
+  }
+}
+
+/* Utility classes for official reports */
+.official-report .text-center {
+  text-align: center;
+}
+
+.official-report .text-left {
+  text-align: left;
+}
+
+.official-report .text-right {
+  text-align: right;
+}
+
+.official-report .font-bold {
+  font-weight: bold;
+}
+
+.official-report .uppercase {
+  text-transform: uppercase;
+}
+
+.official-report .italic {
+  font-style: italic;
+}
+
+.official-report .whitespace-pre-line {
+  white-space: pre-line;
+}
+
+.official-report .whitespace-nowrap {
+  white-space: nowrap;
+}
+
+/* Signature spacing */
+.official-report .report-signatures {
+  margin-top: 40px;
+  page-break-inside: avoid;
+}
+
+.official-report .signature-block {
+  min-height: 80px;
+}
+
+/* Table responsiveness for screen preview */
+@media screen and (max-width: 768px) {
+  .official-report {
+    padding: 10px;
+    font-size: 10px;
+  }
+
+  .report-table table {
+    font-size: 9px;
+  }
+}

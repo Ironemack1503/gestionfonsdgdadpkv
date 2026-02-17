@@ -43,6 +43,7 @@ import TransactionsDetailReportPage from "./pages/reports/TransactionsDetailRepo
 import SyntheseCaissePage from "./pages/reports/SyntheseCaissePage";
 import ExempleRapportsPDFPage from "./pages/reports/ExempleRapportsPDFPage";
 import AdvancedReportEditorPage from "./pages/reports/AdvancedReportEditorPage";
+import OfficialProgrammationPrintPage from "./pages/reports/OfficialProgrammationPrintPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -103,6 +104,7 @@ const App = () => (
               <Route path="/rapports/sommaire" element={<SommaireReportPage />} />
               <Route path="/rapports/etat-financier" element={<EtatFinancierPage />} />
               <Route path="/rapports/programmation" element={<ProgrammationReportPage />} />
+              <Route path="/rapports/programmation-officiel" element={<OfficialProgrammationPrintPage />} />
               <Route path="/rapports/sommaires-imp" element={<SommairesIMPPage />} />
               <Route path="/rapports/liste-rubriques" element={<ListeRubriquesReportPage />} />
               <Route path="/rapports/approvisionnement" element={<ApprovisionnementReportPage />} />

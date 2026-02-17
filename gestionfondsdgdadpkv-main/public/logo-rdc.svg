@@ -1,0 +1,19 @@
+<svg width="120" height="140" viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bouclier / Blason -->
+  <path d="M60 10 L100 30 L100 90 Q100 110 60 130 Q20 110 20 90 L20 30 Z" fill="#0047AB" stroke="#000" stroke-width="2"/>
+  
+  <!-- Bordure intérieure -->
+  <path d="M60 20 L90 35 L90 85 Q90 100 60 115 Q30 100 30 85 L30 35 Z" fill="#FFD700" stroke="#000" stroke-width="1"/>
+  
+  <!-- Centre du blason -->
+  <circle cx="60" cy="70" r="25" fill="#0047AB"/>
+  
+  <!-- Étoile -->
+  <path d="M60 50 L63 60 L73 60 L65 67 L68 77 L60 70 L52 77 L55 67 L47 60 L57 60 Z" fill="#FFD700"/>
+  
+  <!-- Traits décoratifs -->
+  <line x1="35" y1="45" x2="45" y2="45" stroke="#000" stroke-width="1"/>
+  <line x1="75" y1="45" x2="85" y2="45" stroke="#000" stroke-width="1"/>
+  <line x1="35" y1="95" x2="45" y2="95" stroke="#000" stroke-width="1"/>
+  <line x1="75" y1="95" x2="85" y2="95" stroke="#000" stroke-width="1"/>
+</svg>

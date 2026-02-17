@@ -5,7 +5,8 @@
  */
 
 import { useState, useMemo } from 'react';
-import { Calendar, Loader2, FileText, FileSpreadsheet, FileDown, Printer } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Calendar, Loader2, FileText, FileSpreadsheet, FileDown, Printer, FileCheck } from 'lucide-react';
 import { formatMontant } from '@/lib/utils';
 import { PageHeader } from '@/components/shared/PageHeader';
 import { Button } from '@/components/ui/button';
@@ -22,6 +23,7 @@ const moisNoms = [
 ];
 
 export default function ProgrammationReportPage() {
+  const navigate = useNavigate();
   const currentDate = new Date();
   const [selectedMois, setSelectedMois] = useState(currentDate.getMonth() + 1);
   const [selectedAnnee, setSelectedAnnee] = useState(currentDate.getFullYear());
@@ -96,6 +98,13 @@ export default function ProgrammationReportPage() {
         description="État prévisionnel des dépenses mensuelles"
         actions={
           <div className="flex gap-2 flex-wrap">
+            <Button 
+              variant="default" 
+              onClick={() => navigate('/rapports/programmation-officiel')}
+            >
+              <FileCheck className="w-4 h-4 mr-2" />
+              Rapport Officiel
+            </Button>
             <Button variant="outline" onClick={() => window.print()}>
               <Printer className="w-4 h-4 mr-2" />
               Imprimer
